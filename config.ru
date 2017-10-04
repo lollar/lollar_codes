@@ -18,7 +18,7 @@ class Posts < Roda
     end
 
     r.patch String do |_|
-      Responses::NotImplemented.call
+      Responses::NotImplemented.call({})
     end
 
     r.delete String do |title|
@@ -36,8 +36,10 @@ class LollarCodes < Roda
     end
 
     r.on 'posts' do
-      r.run Posts
+      #r.run Posts
+      Responses::NotImplemented.call({})
     end
   end
 end
 
+run LollarCodes.freeze.app
