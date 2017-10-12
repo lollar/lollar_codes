@@ -1,6 +1,7 @@
 require 'roda'
-require_relative 'lib/lollar_codes'
+
 require_relative 'apps/posts/resources'
+require_relative './lollar_codes'
 
 class PostsApp < Roda
   plugin :all_verbs
@@ -16,10 +17,6 @@ class PostsApp < Roda
 
     r.post do
       Posts::Resources.post(r.params)
-    end
-
-    r.patch String do |_|
-      Responses::NotImplemented.call({})
     end
 
     r.delete String do |title|
