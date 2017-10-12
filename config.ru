@@ -1,10 +1,11 @@
 require 'roda'
 
 require_relative 'apps/posts/resources'
-require_relative './lollar_codes'
+require_relative 'lollar_codes'
 
 class PostsApp < Roda
   plugin :all_verbs
+  plugin :json, classes: [Hash]
 
   route do |r|
     r.get String do |title|

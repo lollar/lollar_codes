@@ -1,3 +1,5 @@
+require_relative './resources/post'
+
 module Posts
   module Resources
     extend self
@@ -11,7 +13,7 @@ module Posts
     end
 
     def post(params)
-      "posted #{params}"
+      Post.call(params)
     end
 
     def delete(title)
