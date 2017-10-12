@@ -1,16 +1,17 @@
 require 'roda'
 require_relative 'lib/lollar_codes'
+require_relative 'apps/posts/resources'
 
-class Posts < Roda
+class PostsApp < Roda
   plugin :all_verbs
 
   route do |r|
-    r.get do
-      Posts::Resources.list
-    end
-
     r.get String do |title|
       Posts::Resources.get(title)
+    end
+
+    r.get do
+      Posts::Resources.list
     end
 
     r.post do
@@ -36,8 +37,7 @@ class LollarCodes < Roda
     end
 
     r.on 'posts' do
-      #r.run Posts
-      Responses::NotImplemented.call({})
+      r.run PostsApp
     end
   end
 end
