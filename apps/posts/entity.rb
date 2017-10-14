@@ -1,12 +1,6 @@
-module Posts
-  class Entity
-    def initialize(title:, body:)
-      @title = title
-      @body  = body
-    end
+require_relative '../posts'
 
-    def save
-      true
-    end
+module Posts
+  class Entity < Sequel::Model(DB[:posts])
   end
 end

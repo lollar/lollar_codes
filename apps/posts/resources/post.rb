@@ -10,14 +10,14 @@ module Posts
 
       def initialize(params)
         @title   = params.fetch('title')
-        @body    = params.fetch('body')
+        @body    = params.fetch('body', false)
         @_entity = Posts::Entity.new(title: @title, body: @body)
         @_saved  = false
       end
 
       def call
         save_entity
-        result = Arbitrium::Result.new(@_saved, result_message, @_entity.inspect) 
+        result = Arbitrium::Result.new(!@_saved.nil?, result_message, @_entity.inspect) 
 
         response_hash(result)
       end
