@@ -10,7 +10,7 @@ module Posts
 
       def initialize(params)
         @title   = params.fetch('title')
-        @body    = params.fetch('body', false)
+        @body    = params.fetch('body')
         @_entity = Posts::Entity.new(title: @title, body: @body)
         @_saved  = false
       end

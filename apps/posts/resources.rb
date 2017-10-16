@@ -1,15 +1,16 @@
 require_relative './resources/post'
+require_relative './resources/get'
 
 module Posts
   module Resources
     extend self
 
     def list
-      "list of posts"
+      "lrsajbofaj"
     end
 
     def get(title)
-      "single post with #{title}"
+      Get.call(title)
     end
 
     def post(params)
