@@ -1,6 +1,7 @@
 require_relative './resources/post'
 require_relative './resources/get'
 require_relative './resources/list'
+require_relative './resources/delete'
 
 module Posts
   module Resources
@@ -19,7 +20,7 @@ module Posts
     end
 
     def delete(title)
-      "... deleting #{title}"
+      Delete.call(title)
     end
   end
 end
