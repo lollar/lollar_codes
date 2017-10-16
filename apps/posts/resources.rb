@@ -1,12 +1,13 @@
 require_relative './resources/post'
 require_relative './resources/get'
+require_relative './resources/list'
 
 module Posts
   module Resources
     extend self
 
     def list
-      "lrsajbofaj"
+      List.call
     end
 
     def get(title)

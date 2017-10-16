@@ -14,7 +14,7 @@ module Posts
 
       def call
         post   = find_post
-        result = Arbitrium::Result.new(!post.nil?, "Successfully queryed for #{@title}", post)
+        result = Arbitrium::Result.new(!post.nil?, "Successfully queryed for #{@title}", post.to_json)
 
         response_hash(result)
       end
